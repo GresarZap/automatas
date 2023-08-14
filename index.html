@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <title>Automatas</title>
+</head>
+
+<body>
+    <form action="" method="get" id="grld_grli">
+        <fieldset>
+            <legend>GRLD a GRLI</legend>
+
+            <label for="nTerminales">No Terminales</label>
+            <input type="text" name="nTerminales" id="nTerminales" placeholder="S, X" pattern="^(?!^\s+$)[A-Z ,]*$"
+                required title="S, A, B">
+            <p id="msgNT" class="hidden">Solo ingresar Mayusculas: S, A, B</p>
+
+            <label for="terminales">No Terminales</label>
+            <input type="text" name="terminales" id="terminales" placeholder="a, b" pattern="^(?!^\s+$)[a-z ,]*$"
+                required title="Solo ingresar minusculas: a, b, c">
+            <p id="msgT" class="hidden">Asegurese de seguir el formato: a, b, c</p>
+
+            <label for="producciones">Producciones</label>
+            <input type="text" name="producciones" id="producciones" placeholder="S>aX, X>aX"
+                pattern="^(?!^\s+$)([A-Z]>[a-z][A-Z]*,*\s*)*$" title="Asegurese de seguir el formato: S>aX, X>aX"
+                required>
+            <p id="msgP" class="hidden">Asegurese de seguir el formato: S>aX, X>aX</p>
+
+            <label for="raiz">Raiz</label>
+            <input type="text" name="raiz" id="raiz" placeholder="S" pattern="^[A-Z]{1}$"
+                title="Solo ingresar Mayusculas(El simbolo deberia pertenecer al no terminal): S" required>
+            <p id="msgR" class="hidden">Asegurese de seguir el formato: S</p>
+
+            <button id="solve">Resolver</button>
+            <p class="output">Salida</p>
+            <p id="output"></p>
+        </fieldset>
+    </form>
+
+    <script type="module" src="js/form_grld_grli.js"></script>
+</body>
+
+</html>
