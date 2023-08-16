@@ -19,23 +19,36 @@ import GRLI from "./grli.js";
     const $msgR = document.querySelector("#msgR");
 
     const $output = document.querySelector("#output");
-
+    //revisando si la entrada nTerminales cumple con el formato
     if (!$nTerminales.checkValidity()) {
       $msgNT.classList.remove("hidden");
       e.preventDefault();
       return;
     } else $msgNT.classList.add("hidden");
+
+    //revisando si la entrada Terminales cumple con el formato
     if (!$terminales.checkValidity()) {
       $msgT.classList.remove("hidden");
       e.preventDefault();
       return;
     } else $msgT.classList.add("hidden");
+
+    //revisando si la entrada Producciones cumple con el formato
     if (!$producciones.checkValidity()) {
       $msgP.classList.remove("hidden");
       e.preventDefault();
       return;
     } else $msgP.classList.add("hidden");
+
+    //revisando si la entrada Raiz cumple con el formato
     if (!$raiz.checkValidity()) {
+      $msgR.textContent =
+        "Solo ingresar Mayusculas(El simbolo deberia pertenecer al no terminal): S!!";
+      $msgR.classList.remove("hidden");
+      e.preventDefault();
+      return;
+    } else if (!$nTerminales.value.includes($raiz.value)) {
+      $msgR.textContent = "La raiz debe pertener a los Terminales!!";
       $msgR.classList.remove("hidden");
       e.preventDefault();
       return;
