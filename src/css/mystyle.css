@@ -104,5 +104,46 @@ p.output {
 
 #output {
   font-size: 1rem;
+  color: #7a7a7a;
+}
+
+/* Menu */
+
+menu {
+  background-color: rgba(5, 25, 55, 0.6);
+  min-width: 100vw;
+  min-height: 100vh;
+  position: absolute;
   color: #b7b7b7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: top 0.5s;
+}
+
+menu.active {
+  top: 0;
+  left: 0;
+}
+
+menu ul {
+  width: 100%;
+}
+
+menu ul li {
+  list-style-type: none;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+menu ul li:hover {
+  background-color: #a62f6e;
+  color: #e3e3e3;
+}
+
+menu {
+  top: -100%;
 }
