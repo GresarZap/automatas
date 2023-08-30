@@ -1,4 +1,4 @@
-import GR from "./gr.model";
+import GR from "./gr.model.js";
 export default class GRLinealIzquierda extends GR {
   constructor(nTerminales, terminales, producciones, raiz) {
     super(nTerminales, terminales, producciones, raiz);

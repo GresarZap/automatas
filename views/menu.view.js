@@ -42,9 +42,9 @@ class MenuView {
   }
 
   renderView(data) {
-    const $main = document.querySelector("main");
-    $main.innerHTML = data;
-    console.log($main);
+    const $header = document.querySelector("header");
+    $header.innerHTML = data;
+    console.log($header);
   }
 }
 

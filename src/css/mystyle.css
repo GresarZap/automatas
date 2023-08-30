@@ -14,11 +14,25 @@ body {
     #a62f6e
   );
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   min-height: 100vh;
   font-family: "Oxygen", sans-serif;
   font-weight: 700;
+}
+
+header {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 form {
@@ -112,8 +126,8 @@ menu {
   background-color: rgba(5, 25, 55, 0.6);
   min-width: 100vw;
   min-height: 100vh;
-  position: absolute;
-  top: -100%;
+  position: fixed;
+  top: -110vh;
   left: 0;
   color: #b7b7b7;
   display: flex;
@@ -143,8 +157,4 @@ menu ul li {
 menu ul li:hover {
   background-color: #a62f6e;
   color: #e3e3e3;
-}
-
-menu {
-  top: -100%;
 }

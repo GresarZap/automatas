@@ -1,3 +1,7 @@
+import GRLDModel from "../models/grld.model.js";
+import GRLDControler from "../controllers/grld.controller.js";
+import GRLDView from "../views/grld.view.js";
+
 class MenuController {
   constructor(model) {
     this.model = model;
@@ -14,6 +18,11 @@ class MenuController {
       console.log("click");
       this.clickHandleButton();
     }
+    if (e.target.matches("menu ul li")) {
+      e.preventDefault();
+      console.log("click item");
+      this.clickHandlerItem(e.target.innerText);
+    }
   }
 
   clickHandleButton() {
@@ -29,9 +38,18 @@ class MenuController {
     }
   }
 
-  clickHandlerItem() {
-    const $menu = document.querySelector("menu");
-    $menu;
+  clickHandlerItem(selection) {
+    this.clickHandleButton();
+    switch (selection) {
+      case "GRLD a GRLI":
+        const model = new GRLDModel();
+        const controller = new GRLDControler(model);
+        const view = new GRLDView(controller);
+        break;
+
+      default:
+        break;
+    }
   }
 }
 

@@ -6,6 +6,38 @@ export default class GramaticaRegular {
     this.raiz = raiz;
   }
 
+  get GetNTerminales() {
+    return this.nTerminales;
+  }
+
+  set setNTerminales(nTerminales) {
+    this.nTerminales = nTerminales;
+  }
+
+  get GetTerminales() {
+    return this.terminales;
+  }
+
+  set setTerminales(terminales) {
+    this.terminales = terminales;
+  }
+
+  get GetProducciones() {
+    return this.producciones;
+  }
+
+  set setProducciones(producciones) {
+    this.producciones = producciones;
+  }
+
+  get GetRaiz() {
+    return this.raiz;
+  }
+
+  set setRaiz(raiz) {
+    this.raiz = raiz;
+  }
+
   mostrar() {
     let T = "";
     for (let index = 0; index < this.terminales.length; index++) {
@@ -24,7 +56,7 @@ export default class GramaticaRegular {
     for (let index = 0; index < this.producciones.length; index++) {
       p +=
         this.producciones[index][0] +
-        " ==> " +
+        " --> " +
         this.producciones[index][1] +
         "\n";
     }
@@ -51,7 +83,7 @@ export default class GramaticaRegular {
     for (let index = 0; index < this.producciones.length; index++) {
       p +=
         this.producciones[index][0] +
-        " ==> " +
+        " → " +
         this.producciones[index][1] +
         "<br>";
     }
@@ -70,21 +102,21 @@ export default class GramaticaRegular {
     return false;
   }
 
-  removeRightRoot() {
-    let s = this.raiz + "'";
-    let nT = [s, ...this.nTerminales];
-    let T = [...this.terminales];
-    let p = [];
+  // removeRightRoot() {
+  //   let s = this.raiz + "'";
+  //   let nT = [s, ...this.nTerminales];
+  //   let T = [...this.terminales];
+  //   let p = [];
 
-    for (let index = 0; index < this.producciones.length; index++) {
-      const produccion = this.producciones[index];
+  //   for (let index = 0; index < this.producciones.length; index++) {
+  //     const produccion = this.producciones[index];
 
-      if (produccion[0].includes(this.raiz)) p.push([s, produccion[1]]);
+  //     if (produccion[0].includes(this.raiz)) p.push([s, produccion[1]]);
 
-      p.push(produccion);
-    }
+  //     p.push(produccion);
+  //   }
 
-    const g2 = new GRLinealDerecha(nT, T, p, s);
-    return g2;
-  }
+  //   const g2 = new GRLinealDerecha(nT, T, p, s);
+  //   return g2;
+  // }
 }
