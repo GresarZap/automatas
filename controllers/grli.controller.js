@@ -114,7 +114,7 @@ export default class GrliController {
       //removemos raiz derecha
       const g2 = g1.removeRightRoot();
       output +=
-        "Construimos una GRLD que no tenga Simbolo raiz en la Derecha.<br><br>" +
+        "Construimos una GRLI que no tenga Simbolo raiz en la Derecha.<br><br>" +
         g2.ToHtml("GRLI'") +
         "<br>";
       //creamos GRLD
