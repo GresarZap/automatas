@@ -105,7 +105,7 @@ export default class GrliController {
     const g1 = this.model;
 
     //cadena de salida
-    let output = g1.ToHtml("GRLD") + "<br>";
+    let output = g1.ToHtml("GRLI") + "<br>";
 
     g1.mostrar();
 

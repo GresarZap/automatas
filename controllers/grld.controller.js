@@ -55,8 +55,6 @@ export default class GrldController {
       return;
     } else $msgR.classList.add("hidden");
 
-    // e.preventDefault();
-
     //extrayendo las entradas
     let nT = $nTerminales.value;
     let t = $terminales.value;
@@ -84,7 +82,7 @@ export default class GrldController {
     }
 
     //producciones
-    er = /([A-Z])>([A-Z][a-z]*)/g;
+    er = /([A-Z])>([a-z][A-Z]*)/g;
     let produccion = er.exec(p);
     const producciones = [];
 
@@ -95,8 +93,8 @@ export default class GrldController {
 
     console.log(producciones);
 
-    //raz
-    const raiz = $raiz.value;
+    //raiz
+    const raiz = r;
 
     // const g1 = new GRLD(nTerminales, terminales, producciones, raiz);
 
