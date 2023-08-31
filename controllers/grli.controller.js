@@ -1,4 +1,4 @@
-export default class GrldController {
+export default class GrliController {
   constructor(model) {
     this.model = model;
   }
@@ -6,8 +6,8 @@ export default class GrldController {
   handleEvent(e) {
     e.preventDefault();
     if (e.target.matches("#solve")) {
+      console.log("solve!!");
       this.clickSolve();
-      // console.log("solve!!");
     }
   }
 
@@ -25,6 +25,7 @@ export default class GrldController {
     const $msgR = document.querySelector("#msgR");
 
     const $output = document.querySelector("#output");
+
     //revisando si la entrada nTerminales cumple con el formato
     if (!$nTerminales.checkValidity()) {
       $msgNT.classList.remove("hidden");
@@ -55,9 +56,7 @@ export default class GrldController {
       return;
     } else $msgR.classList.add("hidden");
 
-    // e.preventDefault();
-
-    //extrayendo las entradas
+    //EXTRAYENDO LAS ENTRADAS
     let nT = $nTerminales.value;
     let t = $terminales.value;
     let p = $producciones.value;
@@ -93,34 +92,37 @@ export default class GrldController {
       produccion = er.exec(p);
     }
 
-    console.log(producciones);
-
     //raz
     const raiz = $raiz.value;
 
-    // const g1 = new GRLD(nTerminales, terminales, producciones, raiz);
-
+    //setting valores para el modelo
     this.model.setNTerminales = nTerminales;
     this.model.setTerminales = terminales;
     this.model.setProducciones = producciones;
     this.model.setRaiz = raiz;
 
+    //poniendo la referencia del modelo en g1
     const g1 = this.model;
+
+    //cadena de salida
+    let output = g1.ToHtml("GRLD") + "<br>";
 
     g1.mostrar();
 
-    let output = g1.ToHtml("GRLD") + "<br>";
-
+    //verificando si existe raiz en parte derecha
     if (g1.existRightRoot()) {
+      //removemos raiz derecha
       const g2 = g1.removeRightRoot();
       output +=
         "Construimos una GRLD que no tenga Simbolo raiz en la Derecha.<br><br>" +
         g2.ToHtml("GRLD'") +
         "<br>";
-      const g3 = g2.createGRLI();
-      output += g3.ToHtml("GRLI");
+      //creamos GRLD
+      const g3 = g2.createGRLD();
+      output += g3.ToHtml("GRLD");
     } else {
-      output += g1.createGRLI().ToHtml("GRLI");
+      //creamos GRLD
+      output += g1.createGRLD().ToHtml("GRLD");
     }
 
     $output.innerHTML = output;

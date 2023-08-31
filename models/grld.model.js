@@ -57,7 +57,8 @@ export default class GRLinealDerecha extends GR {
       const produccion = this.producciones[index];
 
       // console.log(`index: ${index}`);
-
+      // S --> a, S es raiz
+      // S --> a
       if (produccion[0].includes(this.raiz) && produccion[1].length === 1) {
         // console.log(produccion, " raiz e igual a 1");
         p.push(produccion);
@@ -66,12 +67,18 @@ export default class GRLinealDerecha extends GR {
         produccion[1].length > 1
       ) {
         // console.log(produccion, " raiz y mayor 1");
+        // S --> aY, S es raiz
+        // Y --> a
         p.push([produccion[1].charAt(1), produccion[1].charAt(0)]);
       } else if (produccion[1].length === 1) {
         // console.log(produccion, " no es raiz y mayor 1");
+        // X --> a, X != raiz
+        // S --> Xa
         p.push([this.raiz, produccion[0] + produccion[1]]);
       } else {
         // console.log(produccion, " no es raiz");
+        // X --> aY, X != raiz
+        // Y --> Xa
         p.push([
           produccion[1].charAt(1),
           produccion[0] + produccion[1].charAt(0),
